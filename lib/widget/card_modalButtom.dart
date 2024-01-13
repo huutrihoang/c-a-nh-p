@@ -2,15 +2,28 @@
 
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-class modalButtom extends StatelessWidget {
-  modalButtom({Key? key, required this.addTask}) : super(key: key);
+class ModalButtom extends StatefulWidget {
+  const ModalButtom({Key? key, required this.addTask}) : super(key: key);
   final Function addTask;
-  TextEditingController controller = TextEditingController();
+
+  @override
+  State<ModalButtom> createState() => _ModalButtomState();
+}
+
+class _ModalButtomState extends State<ModalButtom> {
+  final TextEditingController controller = TextEditingController();
+
   String textValue = '';
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   void _handleOnlick() {
     final name = controller.text;
-    addTask(name);
+    widget.addTask(name);
   }
 
   @override
@@ -22,6 +35,7 @@ class modalButtom extends StatelessWidget {
         child: Column(
           children: [
             TextField(
+              controller: controller,
               onChanged: (text) {
                 textValue = text;
               },
@@ -37,7 +51,7 @@ class modalButtom extends StatelessWidget {
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: _handleOnlick,
                 child: const Text('addTask'),
               ),
             )
