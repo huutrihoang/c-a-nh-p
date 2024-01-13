@@ -1,11 +1,13 @@
 // ignore_for_file: unused_element, avoid_print, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
+import 'package:myapp/core/logger.dart';
 import 'package:myapp/modal/items.dart';
 import 'package:myapp/widget/card_modalButtom.dart';
 import 'widget/card_body_widget.dart';
 
 void main() {
+  Log().init();
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: MyApp(),
@@ -24,8 +26,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final List<DataItems> items = [];
 
-  void _handleaddtask(String name) {
+  void _handleTask(String name) {
     final newItem = DataItems(id: DateTime.now().toString(), name: name);
+    logger.f(newItem);
     setState(() {
       items.add(newItem);
     });
@@ -50,12 +53,12 @@ class _MyAppState extends State<MyApp> {
         onPressed: () {
           showModalBottomSheet(
             backgroundColor: Colors.grey,
-            shape: const BeveledRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20))),
             isScrollControlled: true,
             context: context,
             builder: (BuildContext context) {
-              return modalButtom(addTask: _handleaddtask);
+              return ModalButtom(addTask: _handleTask);
             },
           );
         },
