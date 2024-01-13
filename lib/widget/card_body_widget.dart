@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/modal/items.dart';
 
-// ignore: camel_case_types, must_be_immutable
 class CardBody extends StatelessWidget {
-  CardBody({Key? key, required this.item}) : super(key: key);
-  // ignore: prefer_typing_uninitialized_variables
-  var item;
+  const CardBody({Key? key, required this.item}) : super(key: key);
+  final DataItems item;
 
   @override
   Widget build(BuildContext context) {
