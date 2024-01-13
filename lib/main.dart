@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    /// hello tri
+    /// hello my
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
