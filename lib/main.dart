@@ -1,11 +1,8 @@
-// ignore_for_file: unused_element, avoid_print, prefer_const_constructors_in_immutables
-
 import 'package:flutter/material.dart';
 import 'package:myapp/core/logger.dart';
 import 'package:myapp/modal/items.dart';
 import 'package:myapp/widget/card_modalButtom.dart';
 import 'widget/card_body_widget.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 
 void main() {
   Log().init();
@@ -47,7 +44,7 @@ class _MyAppState extends State<MyApp> {
           icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
-        title: Text(
+        title: const Text(
           "localizations.demoAppBarTitle",
         ),
         actions: [
@@ -64,7 +61,7 @@ class _MyAppState extends State<MyApp> {
           PopupMenuButton<Text>(
             itemBuilder: (context) {
               return [
-                PopupMenuItem(
+                const PopupMenuItem(
                   child: Text(
                     "localizations.demoNavigationRailFirst",
                   ),
