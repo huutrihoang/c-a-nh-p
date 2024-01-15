@@ -5,6 +5,7 @@ import 'package:myapp/core/logger.dart';
 import 'package:myapp/modal/items.dart';
 import 'package:myapp/widget/card_modalButtom.dart';
 import 'widget/card_body_widget.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 
 void main() {
   Log().init();
