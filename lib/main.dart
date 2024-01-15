@@ -38,12 +38,48 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    /// hello my
+    var localizations = Gallerylocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: const Text('ToDoList', style: TextStyle(fontSize: 40)),
+        leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          icon: const Icon(Icons.menu),
+          onPressed: () {},
+        ),
+        title: Text(
+          localizations.demoAppBarTitle,
+        ),
+        actions: [
+          IconButton(
+            tooltip: localizations.starterAppTooltipFavor,
+            icon: const Icon(Icons.favorite),
+            onPressed: () {},
+          ),
+          IconButton(
+            tooltip: localizations.starterAppTooltipSearch,
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+          PopupMenuButton <Text> (
+            itemBuilder: (context){
+            return[
+              PopupMenuItem(child: Text(
+                localizations.demoNavigationRailFirst,),),];
+          },
+
+
+
+
+       
+            
+          ];
+        ,
       ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: const Text('ToDoList', style: TextStyle(fontSize: 40)),
+      // ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: Column(
