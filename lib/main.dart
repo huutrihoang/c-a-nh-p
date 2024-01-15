@@ -1,11 +1,8 @@
-// ignore_for_file: unused_element, avoid_print, prefer_const_constructors_in_immutables
-
 import 'package:flutter/material.dart';
 import 'package:myapp/core/logger.dart';
 import 'package:myapp/modal/items.dart';
 import 'package:myapp/widget/card_modalButtom.dart';
 import 'widget/card_body_widget.dart';
-import 'package:flutter_localization/flutter_localization.dart';
 
 void main() {
   Log().init();
@@ -38,7 +35,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var localizations = Gallerylocalizations.of(context)!;
+    // var localizations = Gallerylocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
@@ -47,34 +44,32 @@ class _MyAppState extends State<MyApp> {
           icon: const Icon(Icons.menu),
           onPressed: () {},
         ),
-        title: Text(
-          localizations.demoAppBarTitle,
+        title: const Text(
+          "localizations.demoAppBarTitle",
         ),
         actions: [
           IconButton(
-            tooltip: localizations.starterAppTooltipFavor,
+            tooltip: "localizations.starterAppTooltipFavor",
             icon: const Icon(Icons.favorite),
             onPressed: () {},
           ),
           IconButton(
-            tooltip: localizations.starterAppTooltipSearch,
+            tooltip: "localizations.starterAppTooltipSearch",
             icon: const Icon(Icons.search),
             onPressed: () {},
           ),
-          PopupMenuButton <Text> (
-            itemBuilder: (context){
-            return[
-              PopupMenuItem(child: Text(
-                localizations.demoNavigationRailFirst,),),];
-          },
-
-
-
-
-       
-            
-          ];
-        ,
+          PopupMenuButton<Text>(
+            itemBuilder: (context) {
+              return [
+                const PopupMenuItem(
+                  child: Text(
+                    "localizations.demoNavigationRailFirst",
+                  ),
+                ),
+              ];
+            },
+          )
+        ],
       ),
       // appBar: AppBar(
       //   centerTitle: true,
